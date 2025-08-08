@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamLine - New Tab</title>
-
+    <title>StreamLine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
         body {
             font-family: 'Sansation', sans-serif;
@@ -31,39 +27,10 @@
             color: white !important;
             border-bottom: 2px solid #22d3ee;
         }
-        .loading-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 60;
-            color: white;
-            font-size: 1.5rem;
-            flex-direction: column;
-        }
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #22d3ee;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="h-full bg-gray-900 text-white">
-
     <div class="relative min-h-full flex flex-col z-10 w-full">
-
         <header class="w-full p-2">
             <div class="flex items-end">
                 <div id="tab-container" class="flex items-center">
@@ -76,69 +43,51 @@
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
-
             <div class="w-full bg-slate-900/50 backdrop-blur-md rounded-b-xl rounded-tr-xl shadow-lg p-2 flex items-center gap-2 text-sm text-gray-300">
                 <div class="flex items-center gap-2">
-                    <button id="back-btn" class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200">
+                    <button class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200">
                         <i class="fa-solid fa-arrow-left"></i>
                     </button>
-                    <button id="forward-btn" class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200">
+                    <button class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200">
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
-                    <button id="refresh-btn" class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200">
+                    <button class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200">
                         <i class="fa-solid fa-rotate-right"></i>
                     </button>
                 </div>
-
-                <div class="flex-grow bg-black/20 rounded-full flex items-center px-4 py-1.5 mr-1">
-                    <i class="fa-solid fa-lock text-blue-400"></i>
-                    <input id="top-search-bar" type="text" placeholder="Search or enter a URL" class="w-full bg-transparent text-white placeholder-gray-400 ml-3 focus:outline-none">
+                <div class="flex-grow bg-black/20 rounded-full flex items-center px-4 py-1.5">
+                    <i class="fa-solid fa-lock text-gray-400"></i>
+                    <input id="top-search-bar" type="text" placeholder="Search or enter a URL" class="w-full bg-transparent text-gray-200 placeholder-gray-400 ml-3 focus:outline-none">
                 </div>
-
-                <button id="dev-tools-btn" class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200 flex-shrink-0">
-                    <i class="fa-solid fa-wrench text-white"></i>
+                <button id="dev-tools-btn" class="w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-colors duration-200 ml-2 flex-shrink-0">
+                    <i class="fa-solid fa-wrench"></i>
                 </button>
             </div>
         </header>
-
-        <main class="flex-grow flex flex-col w-full">
-            <div id="content-area-wrapper" class="flex-grow flex flex-col items-center justify-center p-4 h-full">
-                <div id="initial-content" class="flex flex-col items-center justify-center w-full h-full">
-                    <div class="flex items-center justify-center mb-6 md:mb-8">
-                        <i class="fa-solid fa-leaf text-5xl md:text-6xl text-green-400 text-shadow-strong"></i>
-                        <h1 class="text-5xl md:text-7xl font-bold text-shadow-strong ml-3">
-                            <span class="text-white">Stream</span><span class="text-cyan-300">Line</span>
-                        </h1>
+        <main class="flex-grow flex flex-col items-center justify-center p-4">
+            <div class="flex items-center justify-center mb-6 md:mb-8">
+                <i class="fa-solid fa-leaf text-5xl md:text-6xl text-green-400 text-shadow-strong"></i>
+                <h1 class="text-5xl md:text-7xl font-bold text-shadow-strong ml-3">
+                    <span class="text-white">Stream</span><span class="text-cyan-300">Line</span>
+                </h1>
+            </div>
+            <div class="relative w-full max-w-lg md:max-w-xl mb-8 text-center">
+                <div class="flex items-center bg-black/30 backdrop-blur-md rounded-full shadow-2xl p-1 border border-white/20">
+                    <div class="pl-4 pr-2">
+                         <i class="fa-solid fa-magnifying-glass text-gray-300"></i>
                     </div>
-
-                    <div class="relative w-full max-w-lg md:max-w-xl mb-8 text-center">
-                        <div class="flex items-center bg-black/30 backdrop-blur-md rounded-full shadow-2xl p-1 border border-white/20">
-                            <div class="pl-4 pr-2">
-                                <i class="fa-solid fa-magnifying-glass text-gray-300"></i>
-                            </div>
-                            <input id="main-search-bar" type="text" placeholder="Let the breeze guide you" class="w-full text-lg bg-transparent text-white placeholder-gray-300 py-3 focus:outline-none">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-sm sm:max-w-2xl lg:max-w-3xl">
-                        <a href="https://www.google.com" target="_blank" title="Google" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://files.catbox.moe/ezhq80.webp')"></a>
-                        <a href="https://www.youtube.com" target="_blank" title="YouTube" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7fw-ro8BbmBEvz33_auxefLFyL8slYqKUJw&s')"></a>
-                        <a href="https://www.spotify.com" target="_blank" title="Spotify" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://files.catbox.moe/i6ias5.webp')"></a>
-                        <a href="https://www.discord.com" target="_blank" title="Discord" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://files.catbox.moe/phvjjc.webp')"></a>
-                        <a href="https://www.twitch.tv" target="_blank" title="Twitch" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400 sm:col-start-2 lg:col-start-auto" style="background-image: url('https://files.catbox.moe/wnvq9t.webp')"></a>
-                    </div>
+                    <input id="main-search-bar" type="text" placeholder="Let the breeze guide you" class="w-full text-lg bg-transparent text-white placeholder-gray-300 py-3 focus:outline-none">
                 </div>
-
-                <iframe id="content-frame" class="w-full h-full hidden rounded-lg shadow-xl" style="border: none;"></iframe>
-
-                <div id="loading-overlay" class="loading-overlay hidden">
-                    <div class="spinner"></div>
-                    <p class="mt-4">Loading content...</p>
-                </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-sm sm:max-w-2xl lg:max-w-3xl">
+                <a href="https://www.google.com" target="_blank" title="google" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://files.catbox.moe/ezhq80.webp')"></a>
+                <a href="https://www.youtube.com" target="_blank" title="youtube" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7fw-ro8BbmBEvz33_auxefLFyL8slYqKUJw&s')"></a>
+                <a href="https://www.spotify.com" target="_blank" title="spotify" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://files.catbox.moe/i6ias5.webp')"></a>
+                <a href="https://www.discord.com" target="_blank" title="discord" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400" style="background-image: url('https://files.catbox.moe/phvjjc.webp')"></a>
+                <a href="https://www.twitch.tv" target="_blank" title="twitch" class="h-20 bg-cover bg-center rounded-xl shadow-lg transition transform hover:scale-105 duration-300 ease-in-out border-2 border-white/20 hover:border-cyan-400 sm:col-start-2 lg:col-start-auto" style="background-image: url('https://files.catbox.moe/wnvq9t.webp')"></a>
             </div>
         </main>
     </div>
-
     <div id="dev-tools-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
         <div class="bg-slate-900/80 backdrop-blur-lg w-full max-w-2xl rounded-xl shadow-2xl border border-white/10">
             <div class="flex justify-between items-center p-4 border-b border-white/10">
@@ -148,12 +97,11 @@
                 </button>
             </div>
             <div class="p-6 text-gray-300">
-                <p>lolol placeholda by oj lololol</p>
+                <p>This is a placeholder for developer tools and settings.</p>
+                <p class="mt-2 text-sm">You could add options here to change the background, manage quick links, or clear browser data.</p>
             </div>
         </div>
     </div>
-
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const topSearchBar = document.getElementById('top-search-bar');
@@ -163,192 +111,30 @@
             const devToolsBtn = document.getElementById('dev-tools-btn');
             const devToolsModal = document.getElementById('dev-tools-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
-            const contentFrame = document.getElementById('content-frame');
-            const loadingOverlay = document.getElementById('loading-overlay');
-            const initialContent = document.getElementById('initial-content');
-            const backBtn = document.getElementById('back-btn');
-            const forwardBtn = document.getElementById('forward-btn');
-            const refreshBtn = document.getElementById('refresh-btn');
-
-            function decodeBase64(encodedString) {
-                try {
-                    return atob(encodedString);
-                } catch (e) {
-                    console.error("Base64 decoding failed:", e);
-                    return null;
-                }
-            }
-
-            function updateUrlBar(url) {
-                topSearchBar.value = url;
-            }
-
-            async function proxyLoad(url, frame, loadingOverlay) {
-                if (loadingOverlay) loadingOverlay.style.display = 'flex';
-                initialContent.classList.add('hidden');
-                contentFrame.classList.remove('hidden');
-
-                let actualTargetUrl = url;
-                const verdantProxyPrefix = window.location.origin + '/route/';
-
-                if (url.startsWith(verdantProxyPrefix)) {
-                    const encodedPart = url.substring(verdantProxyPrefix.length);
-                    const decodedUrl = decodeBase64(encodedPart);
-                    if (decodedUrl) {
-                        actualTargetUrl = decodedUrl;
-                    } else {
-                        actualTargetUrl = url;
-                    }
-                } else {
-                    actualTargetUrl = actualTargetUrl.replace(/^(https?:\/\/)?/, '');
-                }
-
-                const urlToFetch = actualTargetUrl.includes('.')
-                    ? `https://${actualTargetUrl}`
-                    : `https://html.duckduckgo.com/html?q=${encodeURIComponent(actualTargetUrl)}`;
-
-                const proxyChain = [
-                    "https://corsproxy.io/?",
-                    "https://api.allorigins.win/raw?url=",
-                    "https://proxy.cors.sh/",
-                    "https://yacdn.com/proxy/",
-                    "https://api.codetabs.com/v1/proxy/?quest=",
-                    "https://cors.eu.org/",
-                    "https://cors.io/?",
-                    "https://api.proxied.host/",
-                    "https://crossorigin.me/",
-                    "https://web.archive.org/web/",
-                    "https://thingproxy.freeboard.io/fetch/",
-                    "https://toothpaste.bekekes390.workers.dev/?url=",
-                ];
-
-                let response = null;
-                let lastError = "Unknown error, no proxy successfully fetched the content.";
-
-                for (let i = 0; i < proxyChain.length; i++) {
-                    const currentProxyBase = proxyChain[i];
-                    let currentProxyUrl = currentProxyBase + encodeURIComponent(urlToFetch);
-
-                    try {
-                        const controller = new AbortController();
-                        const timeoutId = setTimeout(() => controller.abort(), 25000);
-
-                        response = await fetch(currentProxyUrl, { signal: controller.signal });
-                        clearTimeout(timeoutId);
-
-                        if (response.ok) {
-                            break;
-                        } else {
-                            lastError = `Proxy ${i + 1} failed with status ${response.status} ${response.statusText}.`;
-                        }
-                    } catch (e) {
-                        if (e.name === 'AbortError') {
-                            lastError = `Proxy ${i + 1} request timed out.`;
-                        } else {
-                            lastError = `Proxy ${i + 1} threw an error: ${e.message}.`;
-                        }
-                    }
-                }
-
-                if (!response || !response.ok) {
-                    throw new Error(`Failed to load content. All proxy attempts failed. Last detailed error: ${lastError}`);
-                }
-
-                try {
-                    const html = await response.text();
-                    const baseUrl = new URL(urlToFetch).origin;
-
-                    const processed = html
-                        .replace(/<head>/i, `<head><base href="${baseUrl}/">`)
-                        .replace(/<body([^>]*)>/i, `<body$1 style="margin:0;">`);
-
-                    const blob = new Blob([processed], { type: 'text/html' });
-                    const blobUrl = URL.createObjectURL(blob);
-
-                    frame.src = blobUrl;
-
-                    updateUrlBar(actualTargetUrl);
-
-                    frame.onload = () => {
-                        if (loadingOverlay) loadingOverlay.style.display = 'none';
-
-                        try {
-                            const iframeDoc = frame.contentDocument;
-                            if (iframeDoc && iframeDoc.body) {
-                                iframeDoc.body.addEventListener('click', (e) => {
-                                    let targetElement = e.target;
-                                    let urlToRedirect = '';
-                                    let isHandled = false;
-
-                                    while (targetElement && targetElement !== iframeDoc.body) {
-                                        if (targetElement.tagName === 'A' && targetElement.href) {
-                                            urlToRedirect = targetElement.href;
-                                            isHandled = true;
-                                            break;
-                                        }
-                                        if (targetElement.onclick || targetElement.hasAttribute('data-href') || targetElement.hasAttribute('data-url')) {
-                                            urlToRedirect = targetElement.getAttribute('data-href') || targetElement.getAttribute('data-url') || '';
-                                            if (!urlToRedirect && targetElement.onclick) {
-                                                const onclickString = targetElement.onclick.toString();
-                                                const match = /(?:location\.href|window\.location|location\.assign|window\.open)\s*=\s*['"]([^'"]+)['"]/.exec(onclickString);
-                                                if (match && match[1]) {
-                                                    urlToRedirect = match[1];
-                                                }
-                                            }
-                                            if (urlToRedirect) {
-                                                isHandled = true;
-                                                break;
-                                            }
-                                        }
-                                        targetElement = targetElement.parentElement;
-                                    }
-
-                                    if (isHandled && urlToRedirect) {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-
-                                        try {
-                                            const absoluteUrl = new URL(urlToRedirect, new URL(frame.srcdoc ? frame.src : frame.src).origin).href;
-                                            proxyLoad(absoluteUrl, frame, loadingOverlay);
-                                        } catch (urlError) {
-                                            proxyLoad(urlToRedirect, frame, loadingOverlay);
-                                        }
-                                    }
-                                }, true);
-                            }
-                        } catch (e) {
-                        }
-                    };
-
-                } catch (error) {
-                    frame.srcdoc = `
-                        <div style="color:white;text-align:center;font-size:20px;font-family:sans-serif;padding:50px;background-color:#333;">
-                            Error: Failed to load content.<br><br>
-                            This might be due to a proxy issue, or the target website being inaccessible.
-                            Please try a different URL or try again later.
-                            <br><br>
-                            Tip: For complex sites, internal links might not work automatically. Try copying the full URL and pasting it into the bar above.
-                        </div>
-                    `;
-                    if (loadingOverlay) loadingOverlay.style.display = 'none';
-                    updateUrlBar('');
-                }
-            }
 
             const performSearch = (query) => {
                 if (!query.trim()) return;
-                proxyLoad(query, contentFrame, loadingOverlay);
-            };
-
-            const handleSearchKeydown = (event) => {
-                if (event.key === 'Enter') {
-                    performSearch(event.target.value);
+                try {
+                    new URL(query);
+                    window.location.href = query.startsWith('http') ? query : `https://${query}`;
+                } catch (_) {
+                    if (query.includes('.') && !query.includes(' ')) {
+                        window.location.href = `https://${query}`;
+                    } else {
+                        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                    }
                 }
             };
-            topSearchBar.addEventListener('keydown', handleSearchKeydown);
-            mainSearchBar.addEventListener('keydown', handleSearchKeydown);
-            
-            // Define addNewTab function before it's used
+
+            const setActiveTab = (tabToActivate) => {
+                tabContainer.querySelectorAll('.tab-item').forEach(tab => {
+                    tab.classList.remove('tab-active');
+                    tab.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+                    tab.style.borderBottom = '2px solid transparent';
+                });
+                tabToActivate.classList.add('tab-active');
+            };
+
             const addNewTab = () => {
                 const newTab = document.createElement('div');
                 newTab.className = 'tab-item rounded-t-lg px-4 py-2 flex items-center gap-2 cursor-pointer text-gray-300 hover:text-white';
@@ -373,6 +159,14 @@
                 setActiveTab(newTab);
             };
 
+            const handleSearchKeydown = (event) => {
+                if (event.key === 'Enter') {
+                    performSearch(event.target.value);
+                }
+            };
+            topSearchBar.addEventListener('keydown', handleSearchKeydown);
+            mainSearchBar.addEventListener('keydown', handleSearchKeydown);
+            
             addTabBtn.addEventListener('click', addNewTab);
             
             tabContainer.addEventListener('click', (e) => {
@@ -391,24 +185,7 @@
                     devToolsModal.classList.add('hidden');
                 }
             });
-
-            backBtn.addEventListener('click', () => {
-                if (contentFrame.contentWindow.history.length > 1) {
-                    contentFrame.contentWindow.history.back();
-                }
-            });
-
-            forwardBtn.addEventListener('click', () => {
-                if (contentFrame.contentWindow.history.length > 1) {
-                    contentFrame.contentWindow.history.forward();
-                }
-            });
-
-            refreshBtn.addEventListener('click', () => {
-                contentFrame.contentWindow.location.reload(true);
-            });
         });
     </script>
-
 </body>
 </html>
