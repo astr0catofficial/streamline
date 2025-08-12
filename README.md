@@ -6,9 +6,9 @@ Tired of slow, clunky proxies? **StreamLine** is a smooth, nature-inspired **web
 ➕ **TabSystem* so you can multitask easily  
 🗽 **SearchSuggestions* pre-made for quick access  
 🛠️ **DevTools* with custom search engine options  
-🌳 Clean, calming **#NatureTheme* throughout  
+🌳 Clean, calming **NatureTheme* throughout  
 
-Just open it up & start exploring — **#NoSetup**, **#NoStress**.  
+Just open it up & start exploring — **NoSetup**, **NoStress**.  
 
 **Try it now:** 🌐 <https://streamlineapp.pages.dev> *(Hosted on Cloudflare)*  
 
