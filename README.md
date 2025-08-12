@@ -10,7 +10,7 @@ Tired of slow, clunky proxies? **#StreamLine** is a smooth, nature-inspired **#w
 
 Just open it up & start exploring — **#NoSetup**, **#NoStress**.  
 
-**Try it now:** 🌐 <https://streamlineapp.pages.dev> *(Hosted on #Cloudflare)*  
+**Try it now:** 🌐 <https://streamlineapp.pages.dev> *(Hosted on Cloudflare)*  
 
 💨 Let the breeze guide you. *(Concept by #astr0cat)*  
 
