@@ -1,6 +1,6 @@
 🌿 **StreamLine** — browse freely, the natural way.**  
 
-Tired of slow, clunky proxies? **#StreamLine** is a smooth, nature-inspired **#webproxy** built for **#speed**, **#privacy**, and **#simplicity**.  
+Tired of slow, clunky proxies? **StreamLine** is a smooth, nature-inspired **webproxy** built for **speed**, **privacy**, and **simplicity**.  
 
 🔎 **<Features:>*  
 ➕ **TabSystem* so you can multitask easily  
